@@ -1,42 +1,50 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
+import { songs } from './data/songs.js';
+import { playlists } from './data/playlists.js';
 
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
 // your data.
 const typeDefs = `#graphql
-  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
-
-  # This "Book" type defines the queryable fields for every book in our data source.
-  type Book {
+  type Songs {
     title: String
-    author: String
+    singer: Singer
+    genre: String
   }
 
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
+  type Singer {
+    firstName: String!
+    lastName: String!
+    address: Address
+  }
+
+  type Address {
+    city: String
+    province: String
+    country: String
+  }
+
+  type Playlists {
+    title: String!
+    description: String
+    songs: [Songs]
+  }
+
   type Query {
-    books: [Book]
+    songs: [Songs!]
+    playlists: [Playlists]
   }
 `;
 
-const books = [
-    {
-        title: 'The Awakening',
-        author: 'Kate Chopin',
-    },
-    {
-        title: 'City of Glass',
-        author: 'Paul Auster',
-    },
-];
+
 
 // Resolvers define how to fetch the types defined in your schema.
 // This resolver retrieves books from the "books" array above.
 const resolvers = {
     Query: {
-        books: () => books,
+        songs: () => songs,
+        playlists: () => playlists
     },
 };
 

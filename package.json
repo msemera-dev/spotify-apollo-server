@@ -1,5 +1,6 @@
 {
   "name": "spotify-apollo-server",
+  "type": "module",
   "version": "1.0.0",
   "description": "Spotify clone back-end server",
   "main": "index.js",
@@ -8,8 +9,9 @@
     "graphql": "^16.8.0",
     "typescript": "^5.2.2"
   },
-  "devDependencies": {},
-  "type": "module",
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.2"
+  },
   "scripts": {
     "compile": "tsc",
     "run-node-16": "nvm use 16.14.0",
