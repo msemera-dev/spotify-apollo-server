@@ -1,0 +1,31 @@
+{
+  "name": "spotify-apollo-server",
+  "version": "1.0.0",
+  "description": "Spotify clone back-end server",
+  "main": "index.js",
+  "dependencies": {
+    "@apollo/server": "^4.9.2",
+    "graphql": "^16.8.0",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {},
+  "type": "module",
+  "scripts": {
+    "compile": "tsc",
+    "run-node-16": "nvm use 16.14.0",
+    "start": "npm run compile && node ./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msemera-dev/spotify-apollo-server.git"
+  },
+  "keywords": [
+    "Spotify"
+  ],
+  "author": "msemera-dev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msemera-dev/spotify-apollo-server/issues"
+  },
+  "homepage": "https://github.com/msemera-dev/spotify-apollo-server#readme"
+}
